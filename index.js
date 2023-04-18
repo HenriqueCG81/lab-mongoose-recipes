@@ -26,16 +26,21 @@ async function updateDatabase() {
         '3 tablespoons Asian chili garlic sauce',
         '3 tablespoons minced garlic',
         'salt to taste',
-        '8 skinless, boneless chicken thighs'
+        '6 skinless, boneless chicken thighs'
       ],
       cuisine: 'Asian',
       dishType: 'main_course',
       image:
-        'https://images.media-allrecipes.com/userphotos/720x405/815964.jpg',
-      duration: 50,
+        'https://images.media-allrecipes.com/userphotos/720x405/815965.jpg',
+      duration: 80,
       creator: 'Chef LePapu'
     });
+
     await Recipe.insertMany(data);
+
+    data.forEach(recipe => {
+      console.log(recipe.title);
+    });
     await Recipe.updateOne(
       { title: 'Rigatoni alla Genovese' },
       { duration: 100 }
